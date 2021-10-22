@@ -49,6 +49,7 @@ app.use(async (ctx) => {
     ctx.set('Content-Type', parseMime(url))
     // 设置过期时间在30000毫秒，也就是30秒后
     ctx.set('Expires', new Date(Date.now() + 30000))
+    ctx.set('Cache-Control', 'no-cache')
     ctx.body = await parseStatic(filePath)
   }
 })
